@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+    <!-- Required meta tags -->
+    <meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+	<meta name="description" content="Is your door step delivery. We can help take the weight off your shoulders, trust us to run pick up and delivery for you. And help you access your favourite restaurant in your current location. We’re just a click away.">
+	<meta name=”robots” content="index, follow">
+	<link rel="shortcut icon" href="/assets/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/assets/favicon.ico" type="image/x-icon">
+	<title>Apporte Ltd </title>
+    <!-- Bootstrap CSS -->
+	<link rel="stylesheet" href="assets/css/bootstrap.min.css">
+	<link href="https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/custom.css">
+    <link rel="stylesheet" href="./assets/css/notiflix-2.7.0.min.css">
+
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB0COFivde4qPpLsHpvVRIXme2htVJGRt8&v=3.exp&libraries=places"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="./assets/js/notiflix-aio-2.7.0.min.js"></script>
+
+    <style>
+        .list-item {
+            margin: 5px 0px;
+            padding: 5px;
+            background: #ffffff;
+            color: #000000;
+        }
+    </style>
+ </head>
+ <body>
+		<div class="ap-bg-white">
+			<div class="ap-bg-purple header-clip-path">
+				<div class="container">
+					<nav class="navbar navbar-expand-lg bg-pri"  >
+						  <img class="navbar-brand" src="assets/images/logo.svg">
+							  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+								<span class="navbar-toggler-icon"></span>
+								  </button>
+			
+						  <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+								<ul class="navbar-nav ml-auto" >
+									  <li class="nav-item active">
+										<a class="nav-link text-white" href="/">Home</a>
+									  </li>
+									 <li class="nav-item ">
+										<a class="nav-link text-white" href="#">About </a>
+									 </li>
+									 <li class="nav-item active">
+										<a class="nav-link text-white" href="#">Features <span class="sr-only">(current)</span></a>
+									 </li>
+									 <li class="nav-item active">
+										<a class="nav-link text-white" href="#">Team Players <span class="sr-only">(current)</span></a>
+                                     </li>
+                                     <li class="nav-item active">
+										<a class="nav-link text-white" href="privacy.html">Terms<span class="sr-only">(current)</span></a>
+									 </li>
+								</ul>
+							<a button type="button" class="btn ap-btn ap-bg ap-white" href="#">Download App</a>
+						  </div>
+					</nav>
+					
+					<div class="text-white jumbotron ">
+						<div class="row">
+						  <div class="col-sm-7" style="margin-top: 122px;">
+							<strong class="str-1 title" style="color:#ffffff">Add Your Business On Apporte</strong> 
+                            <p class="text-left title-text">Fill the form below to register on our platform</p>
+						  
+                            <!-- Register Form -->
+                            <form name='registerForm' id="registerForm">
+                                <div class="row">
+                                    <div class="form-floating mb-3 col-12 col-sm-6">
+                                        <label for="name">Business Name</label>
+                                        <input type="text" class="form-control" id="name" placeholder="Business Name" required>
+                                    </div>
+                                    <div class="form-floating col-12 col-sm-6">
+                                        <label for="email">Email Address</label>
+                                        <input type="email" class="form-control" id="email" placeholder="name@email.com" required>
+                                    </div>
+                                </div>
+                                <div class="form-floating mb-3">
+                                    <label for="addrs">Business Address</label>
+                                    <input type="text" class="form-control" id="addrs" placeholder="" onkeyup="autoCompleteSearch(this.value)" list='addressItems' required>
+                                    <!-- <datalist id="addressItems">
+                                    </datalist> -->
+                                    <ul class="list-group" id="addressItems">
+                                    </ul>
+                                </div>
+                                <div class="row">
+                                    <div class="form-floating mb-3 col-12 col-sm-6">
+                                        <label for="phone">Mobile Number</label>
+                                        <input type="tel" class="form-control" id="phone" placeholder="Business Phone Number" required>
+                                    </div>
+                                    <div class="form-floating col-12 col-sm-6">
+                                        <label for="type">Business Type</label>
+                                        <select type="text" class="form-control" onchange="setType(this)" id="type" required>
+                                            <option value="1">Restaurant</option>
+                                            <option value="2">Laundry</option>
+                                            <option value="3">Logistics</option>
+                                            <option value="4">Groceries</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-floating mb-3">
+                                    <label for="addrs">Business Description</label>
+                                    <input type="text" class="form-control" id="description" placeholder="Describe your business in a few words" required>
+                                </div>
+                                <div class="row" style="margin-left: 0 !important">
+                                    <button class="btn ap-btn ap-bg ap-white mr-4" type="button" id="submitButton">Register</button>
+                                </div>
+                            </form>
+						  </div>
+						  <div class="col-sm-5 ap-center">
+							<div class="circle-1">
+								<div class="circle-2">
+									<div class="circle-3">
+									<img src="assets/images/ahora.svg" class="" />
+								</div>
+							</div>
+							</div>
+							
+						  </div>
+						</div>
+					  </div>
+					  
+			</div>
+			</div>
+	
+			<footer>
+				<div class="footer text-white" style="background-color:#080713; background-image:url('assets/images/background-footer.svg'); background-position: center;">
+				  <div class="container">
+					<div class="row">
+						<div class ="col-12" style="text-align: center; margin-top: 40px; font-weight: 600; font-size: 18px; line-height: 24px">
+								   <img src="assets/images/footer_logo.svg" alt="" loading="lazy">
+								 <p class="title-text"> Follow Us
+								  <img src="assets/images/fb.svg" alt="" loading="lazy">
+								  <img src="assets/images/twitter.svg">
+								  <img src="assets/images/linkdin.svg">
+								 </p>
+						</div>
+						  <div class="col-md-6 ">
+							© Apporte. All rights reserved, 2020 
+						  </div>
+						  <div class="col-md-6 footer-links">
+							  <a class="nav-link text-white" href="#">Home</a>   
+							  
+							  <a class="nav-link text-white" href="#">About </a>
+							  
+							  <a class="nav-link text-white" href="#">Features <span class="sr-only">(current)</span></a>
+							  
+							  <a class="nav-link text-white" href="#">Team Players <span class="sr-only">(current)</span></a>
+						  </div>
+						</div>
+				  </div>
+				</div>
+				</div>
+			</footer>
+		</div>
+		
+	 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+	 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+	 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+
+     <script type="text/javascript">
+        const GoogleAutocomplete = new google.maps.places.AutocompleteService();
+        const Geocoder = new google.maps.Geocoder;
+        let GeoBounds;
+        let address_query = document.getElementById('addrs').value;
+        let addressDatalist = document.getElementById('addressItems');
+        let submitButton = document.getElementById('submitButton');
+        // submitButton.disabled = true;
+
+        submitButton.addEventListener('click', (event) => {
+            registerVendor(event);
+        });
+
+        // FORM VALUES  
+        let vendor_name = document.getElementById('name').value;
+        let vendor_email = document.getElementById('email').value;
+        let vendor_address = document.getElementById('addrs').value;
+        let vendor_phone = document.getElementById('phone').value;
+        let vendor_type = Number(document.getElementById('type').value);
+        let vendor_description = document.getElementById('description').value;
+        let vendor_status = 1;
+        let vendor_lat;
+        let vendor_lng;
+        let type;
+
+        (function() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition((data) => {
+                    let position = {
+                        lat: data.coords.latitude,
+                        lng: data.coords.longitude
+                    };
+                    let centerSfo = new google.maps.LatLng(position.lat, position.lng);
+                    let circle = new google.maps.Circle({ radius: 500, center: centerSfo });
+                    let bounds = circle.getBounds();
+                    GeoBounds = bounds;
+                });
+            }
+            Notiflix.Block.Init({
+                closeButton: true,
+                height: '60px', svgColor: '#393186'
+            });
+        });
+
+        function setType(ev) {
+            type = Number(ev.value);
+        }
+
+        async function registerVendor(ev) {
+            // Notiflix.Notify.Success('Sol lucet omnibus');
+            Notiflix.Block.Standard('#submitButton');
+            ev.preventDefault();
+
+            const { data, headers } = await getData();
+
+            let response = await fetch('https://api.apporte.ng/api/vendor/create', {
+                body: data,
+                headers: headers,
+                method: 'POST'
+            });
+
+            if (!response) Notiflix.Block.Remove('#submitButton')
+
+            let result = await response.json();
+
+            console.log('RESULT', result);
+
+            // remove BLOCK on Success
+            Notiflix.Block.Remove('#submitButton', 600);
+        }
+
+        function autoCompleteSearch(ev) {
+            // console.log(ev);
+            if (ev !== '') {
+                GoogleAutocomplete.getPlacePredictions(
+                {
+                    input: ev,
+                    componentRestrictions: { country: 'ng' },
+                    bounds: GeoBounds
+                },
+                (predictions, status) => {
+                    this.autocompleteItems = [];
+                    addressDatalist.innerHTML = '';
+                    addressDatalist.style.display = 'inline-block';
+                    console.log(predictions)
+                    // this.zone.run(() => {
+                    predictions.forEach((prediction) => {
+                        prediction.description.replace(/, Nigeria$/, "");
+                        // let placeId = prediction.place_id;
+                        let item = `
+                            <li class='list-item mb-2' value='${prediction.place_id}' onclick='selectAddress(${JSON.stringify(prediction)})'>
+                                ${prediction.description}
+                            </li>
+                        `;
+                        // let item = `
+                        //     <option value='${prediction.description}' onselect='selectAddress(${JSON.stringify(prediction)})' />
+                        // `;
+                        addressDatalist.innerHTML += item;
+                        // addressDatalist.addEventListener('input', (ev) => {
+                        //     console.log('INPUT', ev);
+                        // });
+                        // addressDatalist.appendChild(item);
+                        this.autocompleteItems.push(prediction);
+                    // });
+                    });
+                });
+            }
+        }
+
+        function selectAddress(prediction) {
+            // let prediction = JSON.parse(pred);
+            console.log('Selected', prediction);
+            Geocoder.geocode({ 'placeId': prediction.place_id }, (results, status) => {
+                if (status === 'OK' && results[0]) {
+                    document.getElementById('addrs').value = prediction.description;
+                    addressDatalist.style.display = 'none';
+                    vendor_lat = results[0].geometry.location.lat();
+                    vendor_lng = results[0].geometry.location.lng();
+                    console.log(vendor_lng, vendor_lat);
+                }
+            });
+        }
+
+        function setButtonState() {
+            if (
+                vendor_name !== '' &&
+                vendor_email !== '' &&
+                vendor_phone !== '' &&
+                vendor_description !== '' &&
+                vendor_address !== '' &&
+                vendor_type !== '' &&
+                vendor_lat !== '' &&
+                vendor_lng !== '' &&
+                vendor_status !== ''
+            ) {
+                submitButton.disabled = false;
+            } else {
+                submitButton.disabled = true;
+            }
+        }
+
+       function getData() {
+            let data = new FormData();
+            let values = {
+                name: document.getElementById('name').value,
+                email: document.getElementById('email').value,
+                description: document.getElementById('description').value,
+                lat: vendor_lat,
+                lng: vendor_lng,
+                address: document.getElementById('addrs').value,
+                mobile_no: document.getElementById('phone').value,
+                vendor_type_id: type,
+                status: vendor_status
+            }
+            // data.append('vendor_type_id', vendor_type);
+            // data.append('name', vendor_name);
+            // data.append('email', vendor_email);
+            // data.append('address', vendor_address);
+            // data.append('lat', vendor_lat);
+            // data.append('lng', vendor_lng);
+            // data.append('mobile_no', vendor_phone);
+            // data.append('description', vendor_description ? vendor_description : '');
+            // data.append('status', vendor_status ? vendor_status : 1);
+
+            console.log('VAL', values);
+            
+            let headers = new Headers();
+            headers.append('Access-Control-Allow-Origin', '*');
+            // headers.append('Content-Type', 'multipart/form-data');
+            headers.append('Content-Type', 'application/json');
+
+            return {
+                data: JSON.stringify(values),
+                headers: headers
+            }
+
+       }
+    </script>
+</body>
+  
+    
+</html>
